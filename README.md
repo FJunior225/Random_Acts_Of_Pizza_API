@@ -1,24 +1,17 @@
-# README
+# Random Acts of Pizza
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Our Vision
+To bring people together through pizza.
 
-Things you may want to cover:
+## Visionaries
 
-* Ruby version
+#### FJ Collins Jr
+https://github.com/FJunior225
 
-* System dependencies
+#### Noah Schutte
+https://github.com/noahschutte
 
-* Configuration
+## Contact Us with feedback or appreciation
+fcollins225@gmail.com
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+noahschutte@gmail.com

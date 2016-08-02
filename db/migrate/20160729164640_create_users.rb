@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
     create_table :users do |t|
         t.string :access_token, null: false
         t.string :first_name, null: false
-        t.string :email, null: false
+        t.string :email
         t.integer :rating, default: 0
 
         t.timestamps null: false

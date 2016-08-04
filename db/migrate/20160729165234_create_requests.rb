@@ -7,6 +7,7 @@ class CreateRequests < ActiveRecord::Migration[5.0]
       t.string :state, null: false
       t.integer :pizzas, default: 1
       t.string :status, default: "open"
+      t.integer :donor_id
 
       t.timestamps null: false
     end

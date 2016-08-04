@@ -18,22 +18,22 @@ ActiveRecord::Schema.define(version: 20160729165234) do
   create_table "requests", force: :cascade do |t|
     t.integer  "creator_id",                  null: false
     t.string   "title",                       null: false
-    t.string   "video",                       null: false
+    t.string   "city",                        null: false
+    t.string   "state",                       null: false
     t.integer  "pizzas",     default: 1
     t.string   "status",     default: "open"
-    t.integer  "donor_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["creator_id"], name: "index_requests_on_creator_id", using: :btree
-    t.index ["donor_id"], name: "index_requests_on_donor_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",             null: false
-    t.string   "email",                  null: false
-    t.integer  "rating",     default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "access_token",             null: false
+    t.string   "first_name",               null: false
+    t.string   "email"
+    t.integer  "rating",       default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end

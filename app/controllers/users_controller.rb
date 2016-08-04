@@ -15,9 +15,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    puts request
     @user = User.find(1)
-    if @user.update(email: "noah@googs.com")
+    if @user.update(email: params[:updatedEmail])
       render :json => { user: @user }
     else
       render :json => { status: "fail" }

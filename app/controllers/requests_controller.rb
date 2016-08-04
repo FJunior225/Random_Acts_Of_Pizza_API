@@ -20,11 +20,12 @@ class RequestsController < ApplicationController
   end
 
   def create
-    request = Request.new(creator_id: User.find_by(params[:access_token]), title: params[:title], video: params[:video], pizzas: params[:pizzas], status: params[:status])
-    if round.save
-
+    @user = User.find(2)
+    request = Request.new(creator: @user, title: params[:title], city: params[:city], state: params[:state], pizzas: params[:pizzas])
+    if request.save
+      render :json => { errorMessage: "Request has been created." }
     else
-      render :status => :not_modified
+      render :json => { errorMessage: "Request was not created." }
     end
   end
 

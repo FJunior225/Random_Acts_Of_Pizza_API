@@ -1,50 +1,50 @@
-noah = {
-  fb_userID: 12345,
-  first_name: "Noah",
-  email: "noah@email.com"
+joe = {
+  fb_userID: 11111,
+  first_name: "Joe",
+  email: "joe@email.com"
 }
 
-fj = {
-  fb_userID: 67890,
-  first_name: "FJ",
-  email: "fj@email.com"
+monica = {
+  fb_userID: 22222,
+  first_name: "Monica",
+  email: "monica@email.com"
 }
 
 bob = {
-  fb_userID: 11111,
+  fb_userID: 33333,
   first_name: "Bob",
   email: "bob@email.com"
 }
 
 fred = {
-  fb_userID: 22222,
+  fb_userID: 44444,
   first_name: "Fred",
   email: "fred@email.com"
 }
 
 sally = {
-  fb_userID: 33333,
+  fb_userID: 55555,
   first_name: "Sally",
   email: "sally@email.com"
 }
 
-users = [noah, fj, bob, fred]
+users = [joe, monica, bob, fred, sally]
 
 users.each do |user|
-  User.create(FB_userID: user[:fb_userID], first_name: user[:first_name], email: user[:email])
+  User.create(fb_userID: user[:fb_userID], first_name: user[:first_name], email: user[:email])
 end
 
 request1 = {
-  creator: noah,
-  title: "Noah needs a pizza.",
+  creator: joe,
+  title: "Joe needs a pizza.",
   city: "Denver",
   state: "CO",
   pizzas: 1
 }
 
 request2 = {
-  creator: fj,
-  title: "FJ needs a pizza.",
+  creator: monica,
+  title: "Monica needs a pizza.",
   city: "San Diego",
   state: "LA",
   pizzas: 2

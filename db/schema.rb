@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160729165234) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "FB_userID",              null: false
+    t.bigint   "fb_userID",              null: false
     t.string   "first_name",             null: false
     t.string   "email"
     t.integer  "rating",     default: 0

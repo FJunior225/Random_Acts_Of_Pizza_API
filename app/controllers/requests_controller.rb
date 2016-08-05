@@ -31,7 +31,6 @@ class RequestsController < ApplicationController
 
   def update
     @request = Request.find(1)
-    p "fetch recieved"
     if @request.update(donor_id: 2)
       render :json => { user: @user }
     else

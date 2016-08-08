@@ -1,13 +1,7 @@
 class UsersController < ApplicationController
 
-  def index
-    p "Users index"
-  end
-
   def show
-    p "test"
-    p session
-    @user = User.find(1)
+    @user = User.find(request[:id])
     render :json => { email: @user.email }
   end
 
@@ -20,14 +14,14 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       render :json => @user
     else
-      @user = User.create!(fb_userID: fb_userID, first_name: first_name, email: email)
+      @user = User.create(fb_userID: fb_userID, first_name: first_name, email: email)
       session[:user_id] = @user.id
-      render :json => { status: "user created" }
+      render :json => @user
     end
   end
 
   def update
-    @user = User.find(1)
+    @user = User.find(request[:id])
     if @user.update(email: params[:updatedEmail])
       render :json => { email: @user.email }
     else

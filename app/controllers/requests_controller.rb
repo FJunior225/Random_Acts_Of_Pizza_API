@@ -7,21 +7,25 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.first
-    render :json => {
-      request: {
-        name: @request.creator.first_name,
-        hours: 1,
-        title: @request.title,
-        city: @request.city,
-        state: @request.state,
-        pizzas: @request.pizzas
+    if @request
+      render :json => {
+        request: {
+          name: @request.creator.first_name,
+          hours: 1,
+          title: @request.title,
+          city: @request.city,
+          state: @request.state,
+          pizzas: @request.pizzas
+        }
       }
-    }
+    else
+      render :json => { errorMessage: "No requests" }
+    end
   end
 
   def create
-    @user = User.find(2)
-    request = Request.new(creator: @user, title: params[:title], city: params[:city], state: params[:state], pizzas: params[:pizzas])
+    @user_id = User.find(request[:userID])
+    request = Request.new(creator: @user_id, title: params[:title], city: params[:city], state: params[:state], pizzas: params[:pizzas])
     if request.save
       render :json => { errorMessage: "Request has been created." }
     else
@@ -30,9 +34,9 @@ class RequestsController < ApplicationController
   end
 
   def update
-    @request = Request.find(1)
-    if @request.update(donor_id: 2)
-      render :json => { user: @user }
+    @request = Request.find(request[:requestID])
+    if @request.update(donor_id: request[:userID])
+      render :json => { user: @request.creator }
     else
       render :json => { status: "fail" }
     end

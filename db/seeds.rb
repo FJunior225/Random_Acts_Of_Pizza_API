@@ -36,6 +36,7 @@ end
 
 request1 = {
   creator: joe,
+  first_name: "Joe",
   title: "Joe needs a pizza.",
   city: "Denver",
   state: "CO",
@@ -44,6 +45,7 @@ request1 = {
 
 request2 = {
   creator: monica,
+  first_name: "Monica",
   title: "Monica needs a pizza.",
   city: "San Diego",
   state: "LA",
@@ -52,6 +54,7 @@ request2 = {
 
 request3 = {
   creator: bob,
+  first_name: "Bob",
   title: "Bob needs a pizza.",
   city: "New York",
   state: "NY",
@@ -61,5 +64,5 @@ request3 = {
 requests = [request1, request2, request3]
 
 requests.each_with_index do |request, index|
-  Request.create(creator: User.find(index + 1), title: request[:title], city: request[:city], state: request[:state], pizzas: request[:pizzas])
+  Request.create(creator: User.find(index + 1), first_name: request[:first_name], title: request[:title], city: request[:city], state: request[:state], pizzas: request[:pizzas])
 end

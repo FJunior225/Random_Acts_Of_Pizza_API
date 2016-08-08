@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160729165234) do
 
   create_table "requests", force: :cascade do |t|
     t.integer  "creator_id",                  null: false
+    t.string   "first_name",                  null: false
     t.string   "title",                       null: false
     t.string   "city",                        null: false
     t.string   "state",                       null: false

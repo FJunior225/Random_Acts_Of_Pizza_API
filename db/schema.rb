@@ -16,16 +16,15 @@ ActiveRecord::Schema.define(version: 20160729165234) do
   enable_extension "plpgsql"
 
   create_table "requests", force: :cascade do |t|
-    t.integer  "creator_id",                  null: false
-    t.string   "first_name",                  null: false
-    t.string   "title",                       null: false
-    t.string   "city",                        null: false
-    t.string   "state",                       null: false
+    t.integer  "creator_id",             null: false
+    t.string   "first_name",             null: false
+    t.string   "title",                  null: false
     t.integer  "pizzas",     default: 1
-    t.string   "status",     default: "open"
+    t.string   "vendor",                 null: false
+    t.string   "video",                  null: false
     t.integer  "donor_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["creator_id"], name: "index_requests_on_creator_id", using: :btree
   end
 

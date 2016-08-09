@@ -1,7 +1,8 @@
 joe = {
   fb_userID: 11111,
   first_name: "Joe",
-  email: "joe@email.com"
+  email: "joe@email.com",
+
 }
 
 monica = {
@@ -38,31 +39,31 @@ request1 = {
   creator: joe,
   first_name: "Joe",
   title: "Joe needs a pizza.",
-  city: "Denver",
-  state: "CO",
-  pizzas: 1
+  pizzas: 1,
+  vendor: "Papa Johns",
+  video: "123.com"
 }
 
 request2 = {
   creator: monica,
   first_name: "Monica",
   title: "Monica needs a pizza.",
-  city: "San Diego",
-  state: "LA",
-  pizzas: 2
+  pizzas: 2,
+  vendor: "Dominos",
+  video: "456.com"
 }
 
 request3 = {
   creator: bob,
   first_name: "Bob",
   title: "Bob needs a pizza.",
-  city: "New York",
-  state: "NY",
-  pizzas: 3
+  pizzas: 3,
+  vendor: "Pizza Hut",
+  video: "789.com"
 }
 
 requests = [request1, request2, request3]
 
 requests.each_with_index do |request, index|
-  Request.create(creator: User.find(index + 1), first_name: request[:first_name], title: request[:title], city: request[:city], state: request[:state], pizzas: request[:pizzas])
+  Request.create!(creator: User.find(index + 1), first_name: request[:first_name], title: request[:title], pizzas: request[:pizzas], vendor: request[:vendor], video: request[:video])
 end

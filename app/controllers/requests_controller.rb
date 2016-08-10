@@ -16,7 +16,9 @@ class RequestsController < ApplicationController
     if User.daily_request(@user_id)
       render :json => { errorMessage: "Stop being greedy." }
     elsif request.save!
-      render :json => { errorMessage: "Request has been created." }
+
+      @requests = Request.open_requests
+      render :json => { requests: @requests, errorMessage: "Request has been created." }
     else
       render :json => { errorMessage: "Request was not created." }
     end
@@ -26,7 +28,9 @@ class RequestsController < ApplicationController
     @donor = User.find(params[:userID])
     @request = Request.find(params[:id])
     if @request.update(donor_id: @donor.id)
-      render :json => { requests: @requests }
+      @requests = Request.open_requests
+      @pizzas = Request.totalPizzasDonated
+      render :json => { totalDonatedPizzas: @pizzas, requests: @requests }
     else
       render :json => { errorMessage: "Cannot donate at this time." }
     end

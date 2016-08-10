@@ -8,13 +8,8 @@ class Request < ApplicationRecord
     Request.where("created_at > ?", DateTime.now - 4.hours)
   end
 
-  def donated_requests
-    Request.where.not(donor_id: nil)
-  end
-
-  def self.daily_request(user_id)
-    return true if Request.where(creator: user_id).where("created_at > ?", DateTime.now - 1.days).any?
-    false
+  def self.totalPizzasDonated
+    Request.where.not(donor_id: nil).map{|request| request.pizzas}.reduce(:+)
   end
 
 end

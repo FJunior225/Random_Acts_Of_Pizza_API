@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def index
+    @pizzas = Request.totalPizzasDonated
+    render :json => { totalDonatedPizzas: @pizzas }
+  end
+
   def show
     @user = User.find(request[:id])
     render :json => { email: @user.email }
@@ -23,9 +28,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(request[:id])
     if @user.update(email: params[:updatedEmail])
-      render :json => { email: @user.email }
+      render :json => { email: @user.email, errorMessage: "Your email was successfully updated." }
     else
-      render :json => { errorMessage: "Please enter valid email address." }
+      render :json => { errorMessage: "Your email was not updated.\nPlease enter valid email address." }
     end
   end
 

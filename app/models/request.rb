@@ -5,16 +5,11 @@ class Request < ApplicationRecord
     belongs_to :creator, class_name: "User", foreign_key: :creator_id
 
   def self.open_requests
-    Request.where("created_at > ?", DateTime.now - 4.hours)
+    Request.where("created_at > ?", DateTime.now - 4.hours).order('created_at ASC')
   end
 
-  def donated_requests
-    Request.where.not(donor_id: nil)
-  end
-
-  def self.daily_request(user_id)
-    return true if Request.where(creator: user_id).where("created_at > ?", DateTime.now - 1.days).any?
-    false
+  def self.totalPizzasDonated
+    Request.where.not(donor_id: nil).map{|request| request.pizzas}.reduce(:+)
   end
 
 end

@@ -6,4 +6,14 @@ class User < ApplicationRecord
 
     has_many :requests, class_name: "Request", foreign_key: :creator_id
 
+    def self.daily_request(user_id)
+      return true if Request.where(creator: user_id).where("created_at > ?", DateTime.now - 1.days).any?
+      false
+    end
+
+    def self.recent_donation(user_id)
+      return true if Request.where(donor_id: user_id).where("updated_at > ?", DateTime.now - 30.minutes).any?
+      false
+    end
+
 end

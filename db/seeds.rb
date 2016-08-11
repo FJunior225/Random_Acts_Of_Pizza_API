@@ -1,7 +1,7 @@
 fn = {
-  fb_userID: 0,
+  fb_userID: 99999,
   first_name: "FJ and Noah",
-  email: "none"
+  email: "none@none.com"
 }
 
 joe = {

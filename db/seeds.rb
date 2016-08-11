@@ -52,26 +52,26 @@ request0 = {
 request1 = {
   creator: joe,
   first_name: "Joe",
-  title: "Joe needs a pizza.",
+  title: "Just missing the pizza for The Great American Challenge",
   pizzas: 2,
   vendor: "Papa Johns",
-  video: "123.com",
-  donor_id: 1
+  video: "123.com"
 }
 
 request2 = {
   creator: monica,
   first_name: "Monica",
-  title: "Monica needs a pizza.",
+  title: "Single mom, toddler keeps asking for pizza.",
   pizzas: 2,
   vendor: "Dominos",
-  video: "456.com"
+  video: "456.com",
+  donor_id: 1
 }
 
 request3 = {
   creator: bob,
   first_name: "Bob",
-  title: "Bob needs a pizza.",
+  title: "Veteran buddy in town, have no money to go out.",
   pizzas: 3,
   vendor: "Pizza Hut",
   video: "789.com"

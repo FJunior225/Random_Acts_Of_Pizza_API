@@ -17,11 +17,11 @@ class UsersController < ApplicationController
     @user = User.find_by(fb_userID: fb_userID)
     if @user
       session[:user_id] = @user.id
-      render :json => @user
+      render :json => { user: @user, email: @user.email }
     else
       @user = User.create(fb_userID: fb_userID, first_name: first_name, email: email)
       session[:user_id] = @user.id
-      render :json => @user
+      render :json => { user: @user, email: @user.email }
     end
   end
 

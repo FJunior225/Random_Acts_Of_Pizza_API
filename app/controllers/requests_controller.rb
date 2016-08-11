@@ -16,7 +16,6 @@ class RequestsController < ApplicationController
     if User.daily_request(@user_id)
       render :json => { errorMessage: "Stop being greedy." }
     elsif request.save!
-
       @requests = Request.open_requests
       render :json => { requests: @requests, errorMessage: "Request has been created." }
     else

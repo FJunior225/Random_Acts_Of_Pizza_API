@@ -10,6 +10,11 @@ class RequestsController < ApplicationController
     end
   end
 
+  def show
+    @request = Request.find(request[:request_id])
+    render :json => { request: @request }
+  end
+
   def create
     @user_id = User.find(request[:userID])
     request = Request.new(creator: @user_id, first_name: params[:first_name], title: params[:title], pizzas: params[:pizzas], vendor: params[:vendor], video: params[:video])

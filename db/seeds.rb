@@ -41,7 +41,6 @@ users.each do |user|
 end
 
 request0 = {
-  id: 1,
   creator: fn,
   first_name: "FJ and Noah",
   title: "Random Acts of Pizza",
@@ -51,7 +50,6 @@ request0 = {
 }
 
 request1 = {
-  id: 2,
   creator: joe,
   first_name: "Joe",
   title: "Just missing the pizza for The Great American Challenge",
@@ -61,7 +59,6 @@ request1 = {
 }
 
 request2 = {
-  id: 3,
   creator: monica,
   first_name: "Monica",
   title: "Single mom, toddler keeps asking for pizza.",
@@ -72,7 +69,6 @@ request2 = {
 }
 
 request3 = {
-  id: 4,
   creator: bob,
   first_name: "Bob",
   title: "Veteran buddy in town, have no money to go out.",
@@ -84,5 +80,5 @@ request3 = {
 requests = [request0, request1, request2, request3]
 
 requests.each_with_index do |request, index|
-  Request.create!(id: request[:id], creator: User.find(index+1), first_name: request[:first_name], title: request[:title], pizzas: request[:pizzas], vendor: request[:vendor], video: request[:video], donor_id: request[:donor_id])
+  Request.create(creator: User.find(index+1), first_name: request[:first_name], title: request[:title], pizzas: request[:pizzas], vendor: request[:vendor], video: request[:video], donor_id: request[:donor_id])
 end

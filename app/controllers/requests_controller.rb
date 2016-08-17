@@ -17,10 +17,10 @@ class RequestsController < ApplicationController
 
   def create
     @user_id = User.find(request[:userID])
-    request = Request.new(creator: @user_id, first_name: params[:first_name], title: params[:title], pizzas: params[:pizzas], vendor: params[:vendor], video: params[:video])
+    request = Request.new(creator: @user_id, first_name: @user_id.first_name, title: params[:title], pizzas: params[:pizzas], vendor: params[:vendor], video: params[:video])
     if User.daily_request(@user_id)
       render :json => { errorMessage: "Stop being greedy." }
-    elsif request.save!
+    elsif request.save
       @requests = Request.open_requests
       render :json => { requests: @requests, errorMessage: "Request has been created." }
     else
